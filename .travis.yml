@@ -1,0 +1,29 @@
+matrix:
+  include:
+    - language: python
+      python: "3.6"
+      before_script:
+        - cd updater
+      script:
+        - echo 'we should add updater tests'
+
+    - language: node_js
+      sudo: required
+      addons:
+        chrome: stable
+      node_js:
+        - "node"
+      cache:
+        directories:
+          - $HOME/.npm
+      before_script:
+        - cd docs
+        - npm install
+        - gem install github-pages
+      script:
+        - npm test
+      after_script:
+        - npm run codecov
+      branches:
+        only:
+          - master

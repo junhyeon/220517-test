@@ -1,0 +1,15 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6
+    },
+    "env": {
+        "node": true,
+        "jasmine": true,
+        "jquery": true
+    },
+    "globals": {
+        "d3": false,
+        "moment": false,
+        "Date": false
+    }
+}

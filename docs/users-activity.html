@@ -1,0 +1,92 @@
+---
+layout: default
+title: User Activity
+permalink: /users-activity
+---
+
+<div class="chart-placeholder">
+	<h3>Users (Active/Using License)</h3>
+	<canvas
+		data-url="{{ site.dataURL }}/users.tsv"
+		data-type="history"
+		data-config='{
+			"views":
+			[
+				{
+					"label": "2 m",
+					"tooltip": "Show the last 2 months",
+					"aggregate": false,
+					"series":
+					[
+						"using license",
+						"pushing commits (last four weeks)",
+						"pushing commits (last week)",
+						"pushing commits (last day)"
+					],
+					"visibleSeries":
+					[
+						"using license",
+						"pushing commits (last four weeks)"
+					],
+					"slice": [0, 61]
+				},
+				{
+					"label": "2 y",
+					"tooltip": "Show the last 2 years",
+					"aggregate":
+					{
+						"period": "week",
+						"method": "median"
+					},
+					"series":
+					[
+						"using license",
+						"pushing commits (last four weeks)",
+						"pushing commits (last week)",
+						"pushing commits (last day)"
+					],
+					"visibleSeries":
+					[
+						"using license",
+						"pushing commits (last four weeks)"
+					],
+					"slice": [0, 106],
+					"default": true
+				},
+				{
+					"label": "all",
+					"tooltip": "Show all data",
+					"aggregate":
+					{
+						"period": "week",
+						"method": "median"
+					},
+					"series":
+					[
+						"using license",
+						"pushing commits (last four weeks)",
+						"pushing commits (last week)",
+						"pushing commits (last day)"
+					],
+					"visibleSeries":
+					[
+						"using license",
+						"pushing commits (last four weeks)"
+					]
+				}
+			]
+		}'></canvas>
+	<div class="info-box">
+		<p>
+			<i>Using license</i> shows how many GitHub Enterprise licenses were used at a given date.
+		</p>
+		<p>
+			<i>Pushing commits</i> corresponds to how many different people pushed commits to the appliance in the last four weeks, week, or day.
+		</p>
+	</div>
+	<div class="info-box">
+		<p>
+			The gap to <i>using license</i> indicates the number of people who didn’t log in or push code (for example, people who only read or comment code).
+		</p>
+	</div>
+</div>

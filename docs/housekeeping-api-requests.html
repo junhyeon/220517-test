@@ -1,0 +1,74 @@
+---
+layout: default
+title: API Requests
+permalink: /housekeeping-api-requests
+---
+
+<div class="chart-placeholder">
+	<h3>API Requests</h3>
+	<canvas
+		data-url="{{ site.dataURL }}/api-requests.tsv"
+		data-type="history"
+		data-config='{
+			"views":
+			[
+				{
+					"label": "2 m",
+					"tooltip": "Show the last 2 months",
+					"aggregate": false,
+					"slice": [0, 61]
+				},
+				{
+					"label": "2 y",
+					"tooltip": "Show the last 2 years",
+					"aggregate":
+					{
+						"period": "week",
+						"method": "sum"
+					},
+					"slice": [0, 106],
+					"default": true
+				},
+				{
+					"label": "all",
+					"tooltip": "Show all data",
+					"aggregate":
+					{
+						"period": "week",
+						"method": "sum"
+					}
+				}
+			]
+		}'></canvas>
+	<div class="info-box">
+		<p>
+			The total number of <a href="https://developer.github.com/">GitHub API requests</a>.
+		</p>
+		<p>
+			High numbers usually indicate unfavorably configured CI processes.
+		</p>
+	</div>
+</div>
+
+<div class="chart-placeholder">
+	<h3>API Requests per User</h3>
+	<canvas
+		data-url="{{ site.dataURL }}/api-requests-by-user.tsv"
+		data-type="list"
+	></canvas>
+	<div class="info-box">
+		<p>
+			The top 20 users who made the highest number of API requests yesterday.
+		</p>
+	</div>
+</div>
+
+<div class="chart-placeholder">
+	<h3>API Requests per Repository per IP</h3>
+	<table data-url="{{ site.dataURL }}/api-requests-detailed.tsv" data-type="table"></table>
+	<div class="info-box">
+		<p>
+			This table lists the resources requested via the API that accounted for the majority of API requests yesterday.
+		</p>
+	</div>
+</div>

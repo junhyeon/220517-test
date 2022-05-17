@@ -1,0 +1,62 @@
+---
+layout: default
+title: Recommendations
+permalink: /recommendations-tokenless-auth
+---
+
+<div class="chart-placeholder">
+	<h3>Tokenless Authentication Requests</h3>
+	<canvas
+		data-url="{{ site.dataURL }}/tokenless-authentication.tsv"
+		data-type="history"
+		data-config='{
+			"views":
+			[
+				{
+					"label": "2 m",
+					"tooltip": "Show the last 2 months",
+					"aggregate": false,
+					"slice": [0, 61]
+				},
+				{
+					"label": "2 y",
+					"tooltip": "Show the last 2 years",
+					"aggregate":
+					{
+						"period": "week",
+						"method": "sum"
+					},
+					"slice": [0, 106],
+					"default": true
+				},
+				{
+					"label": "all",
+					"tooltip": "Show all data",
+					"aggregate":
+					{
+						"period": "week",
+						"method": "sum"
+					}
+				}
+			]
+		}'></canvas>
+	<div class="info-box">
+		<p>
+			If your GitHub Enterprise appliance is configured to use <a href="https://help.github.com/enterprise/2.11/admin/guides/user-management/using-ldap/">LDAP authentication</a>, then every request against GitHub requires an additional request against LDAP.
+		</p>
+		<p>
+			At best, this delays GitHub requests because GitHub needs to wait for the LDAP requests first.
+			At worst, GitHub requests will fail if the LDAP requests fail (for instance, because the LDAP server is overloaded with requests).
+		</p>
+	</div>
+	<div class="info-box">
+		<p>
+			To avoid these problems, users should use <a href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/">personal access tokens (via HTTPS)</a> or <a href="https://help.github.com/articles/connecting-to-github-with-ssh/">SSH keys</a> to authenticate.
+			GitHub will check those without additional requests.
+		</p>
+	</div>
+</div>
+
+<div class="chart-placeholder">
+	<table data-url="{{ site.dataURL }}/tokenless-authentication-detailed.tsv" data-type="table"></table>
+</div>

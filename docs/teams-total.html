@@ -1,0 +1,48 @@
+---
+layout: default
+title: Teams
+permalink: /teams-total
+---
+
+<div class="chart-placeholder">
+	<h3>Teams (Total)</h3>
+	<canvas
+		data-url="{{ site.dataURL }}/teams-total.tsv"
+		data-type="history"
+		data-config='{
+			"views":
+			[
+				{
+					"label": "2 m",
+					"tooltip": "Show the last 2 months",
+					"aggregate": false,
+					"slice": [0, 61]
+				},
+				{
+					"label": "2 y",
+					"tooltip": "Show the last 2 years",
+					"aggregate":
+					{
+						"period": "week",
+						"method": "median"
+					},
+					"slice": [0, 106],
+					"default": true
+				},
+				{
+					"label": "all",
+					"tooltip": "Show all data",
+					"aggregate":
+					{
+						"period": "week",
+						"method": "median"
+					}
+				}
+			]
+		}'></canvas>
+	<div class="info-box">
+		<p>
+			The number of teams in total.
+		</p>
+	</div>
+</div>

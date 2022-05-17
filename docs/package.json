@@ -1,0 +1,32 @@
+{
+  "name": "hubble-enterprise-dashboard",
+  "description": "",
+  "version": "0.3.0+git",
+  "scripts": {
+    "start": "echo \"is there jekyll for node?\"",
+    "unit-test": "karma start spec/karma.conf.js",
+    "lint": "eslint .",
+    "test": "mkdir -p _test/assets/js && jekyll build && cp assets/js/.eslintrc.json _test/assets/js/ && cp _site/assets/js/charts.js _test/assets/js/ && npm run unit-test && npm run lint",
+    "codecov": "codecov -F docs"
+  },
+  "devDependencies": {
+    "codecov": "^3.7.2",
+    "eslint": "^8.10.0",
+    "jasmine": "^4.0.2",
+    "karma": "^6.3.17",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-coverage": "^2.0.3",
+    "karma-jasmine": "^4.0.1"
+  },
+  "engines": {
+    "node": ">= 6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/autodesk/hubble.git"
+  },
+  "bugs": {
+    "url": "https://github.com/autodesk/hubble/issues"
+  },
+  "license": "MIT"
+}

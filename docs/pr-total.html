@@ -1,0 +1,106 @@
+---
+layout: default
+title: Pull Requests Total
+permalink: /pr-total
+---
+
+<div class="chart-placeholder">
+	<h3>Pull Requests (Total)</h3>
+	<canvas
+		data-url="{{ site.dataURL }}/pull-request-history.tsv"
+		data-type="history"
+		data-config='{
+			"views":
+			[
+				{
+					"label": "2 m",
+					"tooltip": "Show the last 2 months",
+					"aggregate": false,
+					"series": ["merged", "new"],
+					"visibleSeries": ["merged"],
+					"slice": [0, 61]
+				},
+				{
+					"label": "2 y",
+					"tooltip": "Show the last 2 years",
+					"aggregate":
+					{
+						"period": "week",
+						"method": "sum"
+					},
+					"series": ["merged", "new"],
+					"visibleSeries": ["merged"],
+					"slice": [0, 106],
+					"default": true
+				},
+				{
+					"label": "all",
+					"tooltip": "Show all data",
+					"aggregate":
+					{
+						"period": "week",
+						"method": "sum"
+					},
+					"series": ["merged", "new"],
+					"visibleSeries": ["merged"]
+				}
+			]
+		}'></canvas>
+	<div class="info-box">
+		<p>
+			The total number of merged and new pull requests.
+		</p>
+	</div>
+</div>
+
+<div class="chart-placeholder">
+	<h3>Pull Requests (Last Month, by Repository)</h3>
+	<canvas
+		data-url="{{ site.dataURL }}/pull-requests-by-repository.tsv"
+		data-type="list"
+		data-config='{
+			"series": [
+				"merged",
+				"new"
+			],
+			"visibleSeries": [
+				"merged"
+			],
+			"slice": [
+				0,
+				20
+			]
+		}'
+		></canvas>
+	<div class="info-box">
+		<p>
+			The top 20 repositories with the most merged or new pull requests in the last month.
+		</p>
+	</div>
+</div>
+
+<div class="chart-placeholder">
+	<h3>Pull Requests (Last Month, by Organization)</h3>
+	<canvas
+		data-url="{{ site.dataURL }}/pull-requests-by-organization.tsv"
+		data-type="list"
+		data-config='{
+				"series": [
+				"merged",
+				"new"
+			],
+			"visibleSeries": [
+				"merged"
+			],
+			"slice": [
+				0,
+				20
+			]
+		}'
+		></canvas>
+	<div class="info-box">
+		<p>
+			The top 20 organizations with the most merged or new pull requests in the last month.
+		</p>
+	</div>
+</div>

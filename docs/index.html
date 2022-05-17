@@ -1,0 +1,56 @@
+---
+layout: default
+title: Collaboration
+permalink: /
+---
+
+<div class="chart-placeholder row-centered">
+	<h3>Collaboration Across Organizations</h3>
+	<svg
+		width="1000"
+		height="1000"
+		data-url="{{ site.dataURL }}/org-collaboration.tsv"
+		data-type="chord"
+		data-config='{
+			"showRawDataLink": false,
+			"views":
+			[
+				{
+					"label": "2 w",
+					"tooltip": "Show the last 2 weeks"
+				},
+				{
+					"label": "2 m",
+					"tooltip": "Show the last 2 months"
+				},
+				{
+					"label": "2 y",
+					"tooltip": "Show the last 2 years"
+				}
+			]
+		}'
+	></svg>
+	<div class="info-box">
+		<p>
+			<select class="org-selection"></select>
+		</p>
+	</div>
+	<div class="info-box">
+		<p>
+			The top 50&nbsp;connections between organizations over the last two weeks, two months, or two years.
+		</p>
+		<p>
+			A connection between two organizations is rated higher the more people contribute to both organizations.
+			Users are considered <em>members</em> of an organization if the majority of their pushes were made to this organization.
+		</p>
+	</div>
+	<div class="info-box">
+		<p>
+			The depicted collaboration is especially meaningful if the affected organizations cover different topics.
+			If two organizations cover the same topic (for example, an organization <em>foo-server</em> and an organization <em>foo-client</em>), then the collaboration is less meaningful.
+		</p>
+		<p>
+			In this situation, it might be a good idea to consolidate the two organizations into one (in this example, <em>foo</em>).
+		</p>
+	</div>
+</div>
